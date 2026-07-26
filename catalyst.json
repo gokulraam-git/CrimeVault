@@ -1,0 +1,18 @@
+{
+  "appsail": [
+    {
+      "source": ".",
+      "name": "crimevault-frontend"
+    },
+    {
+      "source": "frontend",
+      "name": "crimevault-frontenf"
+    }
+  ],
+  "slate": [
+    {
+      "name": "crimevault-frontend",
+      "source": "C:\\Users\\kalaiyarasan\\OneDrive\\Desktop\\CrimeVault\\crimevault-frontend"
+    }
+  ]
+}

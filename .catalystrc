@@ -10,19 +10,27 @@
   "projects": [
     {
       "idx": 1,
-      "id": "54301000000013023",
-      "name": "Project-Rainfall",
+      "id": "38965000000021001",
+      "name": "CrimeVault",
       "domain": {
-        "id": "50044309657",
-        "name": "project-rainfall-60079851966.development"
+        "id": "50044327557",
+        "name": "crimevault-60079612557.development"
       },
       "timezone": "Asia/Kolkata",
       "env": [
         {
           "idx": 1,
-          "id": "60079851966",
+          "id": "60079612557",
           "name": "Development",
-          "type": 3
+          "type": 3,
+          "env_status": "Active",
+          "project_details": {
+            "project_name": "CrimeVault",
+            "id": "38965000000021001",
+            "project_type": "Live"
+          },
+          "is_default": true,
+          "action_required": false
         }
       ]
     }
