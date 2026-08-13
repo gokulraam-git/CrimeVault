@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import L from "leaflet";
 import { AlertCircle, Eye, EyeOff, Navigation, Layers } from "lucide-react";
+import { API_BASE_URL } from "../api";
 
 export default function HotspotsMap() {
   const mapContainerRef = useRef(null);
@@ -17,7 +18,7 @@ export default function HotspotsMap() {
 
   // Load hotspots and pins data
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/hotspots")
+    fetch(`${API_BASE_URL}/api/hotspots`)
       .then((res) => res.json())
       .then((resData) => {
         setData(resData);
