@@ -8,6 +8,7 @@ import {
   Building2, ShieldAlert, Award, TrendingUp, Users, 
   MapPin, Landmark, DollarSign, GraduationCap, Users2 
 } from "lucide-react";
+import { API_BASE_URL } from "../api";
 
 ChartJS.register(...registerables);
 
@@ -110,7 +111,7 @@ export default function DistrictDrilldown() {
     setLoading(true);
     setError(null);
     
-    fetch(`http://127.0.0.1:8000/api/districts/${selectedArea}`)
+    fetch(`${API_BASE_URL}/api/districts/${selectedArea}`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch district overview metrics");
         return res.json();
