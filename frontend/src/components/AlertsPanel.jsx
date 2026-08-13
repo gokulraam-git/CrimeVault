@@ -5,6 +5,7 @@ import {
   registerables
 } from "chart.js";
 import { AlertOctagon, Bell, Calendar, ChevronRight, Info, TrendingUp, X, MapPin, Activity, ShieldAlert } from "lucide-react";
+import { API_BASE_URL } from "../api";
 
 ChartJS.register(...registerables);
 
@@ -18,7 +19,7 @@ export default function AlertsPanel() {
   const [regressionLoading, setRegressionLoading] = useState(false);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/anomalies")
+    fetch(`${API_BASE_URL}/api/anomalies`)
       .then((res) => res.json())
       .then((data) => {
         setAlerts(data.alerts || []);
@@ -38,7 +39,7 @@ export default function AlertsPanel() {
     }
     
     setRegressionLoading(true);
-    fetch(`http://127.0.0.1:8000/api/districts/${selectedAlert.district}`)
+    fetch(`${API_BASE_URL}/api/districts/${selectedAlert.district}`)
       .then((res) => res.json())
       .then((data) => {
         setRegressionData(data);
