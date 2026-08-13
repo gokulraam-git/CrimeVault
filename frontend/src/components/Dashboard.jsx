@@ -5,6 +5,7 @@ import {
   registerables
 } from "chart.js";
 import { Shield, AlertTriangle, Users, CheckCircle, TrendingUp, MapPin } from "lucide-react";
+import { API_BASE_URL } from "../api";
 
 ChartJS.register(...registerables);
 
@@ -15,7 +16,7 @@ export default function Dashboard({ setActiveTab }) {
   const [trendHorizon, setTrendHorizon] = useState("monthly"); // daily, monthly, yearly
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/dashboard/stats")
+    fetch(`${API_BASE_URL}/api/dashboard/stats`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch dashboard statistics");
         return res.json();
