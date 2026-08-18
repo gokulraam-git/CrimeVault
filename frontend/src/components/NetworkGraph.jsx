@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { GitCommit, Shield, Users, Eye, Info, Award, User } from "lucide-react";
+import { API_BASE_URL } from "../api";
 
 export default function NetworkGraph() {
   const [data, setData] = useState({ nodes: [], links: [], gangs: [] });
@@ -15,7 +16,7 @@ export default function NetworkGraph() {
   const height = 450;
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/network")
+    fetch(`${API_BASE_URL}/api/network`)
       .then((res) => res.json())
       .then((netData) => {
         setData(netData);
