@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Sparkles, ArrowRight, ShieldCheck, AlertOctagon, Activity, ShieldAlert, User, Users, Calendar, MapPin, FileText, Award } from "lucide-react";
+import { API_BASE_URL } from "../api";
 
 export default function EvolutionEngine() {
   const [chains, setChains] = useState([]);
@@ -10,7 +11,7 @@ export default function EvolutionEngine() {
 
   // Fetch active evolution chains
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/evolution")
+    fetch(`${API_BASE_URL}/api/evolution`)
       .then((res) => res.json())
       .then((data) => {
         setChains(data.evolution_chains || []);
@@ -23,7 +24,7 @@ export default function EvolutionEngine() {
 
   // Fetch all offender details for profiling
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/offenders")
+    fetch(`${API_BASE_URL}/api/offenders`)
       .then((res) => res.json())
       .then((data) => {
         setAllOffenders(data);
