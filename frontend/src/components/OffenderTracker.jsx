@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { UserCheck, ShieldAlert, FileText, Calendar, MapPin, Search, List, GitCommit } from "lucide-react";
+import { API_BASE_URL } from "../api";
 
 export default function OffenderTracker() {
   const [offenders, setOffenders] = useState([]);
@@ -9,7 +10,7 @@ export default function OffenderTracker() {
   const [subTab, setSubTab] = useState("list"); // list, timeline
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/offenders")
+    fetch(`${API_BASE_URL}/api/offenders`)
       .then((res) => res.json())
       .then((data) => {
         setOffenders(data);
