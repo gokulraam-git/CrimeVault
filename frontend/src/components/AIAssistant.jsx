@@ -4,6 +4,7 @@ import {
   UserCheck, ShieldAlert, Sparkles, Brain, Wand2, Calendar, MapPin 
 } from "lucide-react";
 import { jsPDF } from "jspdf";
+import { API_BASE_URL } from "../api";
 
 export default function AIAssistant() {
   const [lang, setLang] = useState("en");
@@ -110,7 +111,7 @@ export default function AIAssistant() {
 
   // Load active repeat offenders for selector
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/offenders")
+    fetch(`${API_BASE_URL}/api/offenders`)
       .then((res) => res.json())
       .then((data) => {
         setOffenders(data);
@@ -145,7 +146,7 @@ export default function AIAssistant() {
     setMessages((prev) => [...prev, { sender: "user", text: query }]);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/assistant/chat", {
+      const response = await fetch(`${API_BASE_URL}/api/assistant/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
