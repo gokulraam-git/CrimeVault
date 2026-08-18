@@ -5,6 +5,7 @@ import {
   registerables
 } from "chart.js";
 import { Landmark, Info, AlertTriangle, ShieldCheck, ChevronDown, ChevronUp, Sliders, ArrowRight } from "lucide-react";
+import { API_BASE_URL } from "../api";
 
 ChartJS.register(...registerables);
 
@@ -24,7 +25,7 @@ export default function SocioEconomic() {
   const [simDensity, setSimDensity] = useState(5.0);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/socio-economic")
+    fetch(`${API_BASE_URL}/api/socio-economic`)
       .then((res) => res.json())
       .then((resData) => {
         setData(resData);
