@@ -5,6 +5,7 @@ import {
   ShieldAlert, TrendingUp, TrendingDown, Activity, 
   Calendar, Building2, AlertTriangle, ArrowUpRight, Clock 
 } from "lucide-react";
+import { API_BASE_URL } from "../api";
 
 ChartJS.register(...registerables);
 
@@ -14,7 +15,7 @@ export default function RiskScoring() {
   const [selectedHorizon, setSelectedHorizon] = useState("30"); // 7, 30, 90
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/predictions/risk")
+    fetch(`${API_BASE_URL}/api/predictions/risk`)
       .then((res) => res.json())
       .then((data) => {
         setPredictions(data.predictions || []);
