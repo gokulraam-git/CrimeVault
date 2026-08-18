@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FileUp, Info, CheckCircle2, AlertCircle, RefreshCw, FileText, Database } from "lucide-react";
+import { API_BASE_URL } from "../api";
 
 export default function DatasetManager() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -59,7 +60,7 @@ export default function DatasetManager() {
     formData.append("file", selectedFile);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/dataset/import", {
+      const response = await fetch(`${API_BASE_URL}/api/dataset/import`, {
         method: "POST",
         body: formData,
       });
@@ -87,7 +88,7 @@ export default function DatasetManager() {
     setUploadResult(null);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/admin/seed", {
+      const response = await fetch(`${API_BASE_URL}/api/admin/seed`, {
         method: "POST"
       });
       if (!response.ok) throw new Error("Restoration failed.");
