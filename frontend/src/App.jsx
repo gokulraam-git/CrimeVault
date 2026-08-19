@@ -14,7 +14,7 @@ import DatasetManager from "./components/DatasetManager";
 
 import { 
   ShieldAlert, Sparkles, Map, Bell, GitCommit, 
-  UserCheck, Landmark, Shield, LayoutDashboard, Calendar, Activity, Lock, Mail, User, LogOut, Key, Sun, Moon, Bot, Database, Video
+  UserCheck, Landmark, Shield, LayoutDashboard, Calendar, Activity, Lock, Mail, User, LogOut, Key, Sun, Moon, Bot, Database, Video, AlertOctagon
 } from "lucide-react";
 import { API_BASE_URL } from "./api";
 
@@ -69,7 +69,7 @@ export default function App() {
   // Fetch alerts count when authenticated
   useEffect(() => {
     if (!isAuthenticated) return;
-    fetch("http://127.0.0.1:8000/api/anomalies")
+    fetch(`${API_BASE_URL}/api/anomalies`)
       .then((res) => res.json())
       .then((data) => {
         if (data.alerts) setAlertCount(data.alerts.length);
