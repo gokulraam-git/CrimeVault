@@ -16,6 +16,7 @@ import {
   ShieldAlert, Sparkles, Map, Bell, GitCommit, 
   UserCheck, Landmark, Shield, LayoutDashboard, Calendar, Activity, Lock, Mail, User, LogOut, Key, Sun, Moon, Bot, Database, Video
 } from "lucide-react";
+import { API_BASE_URL } from "./api";
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
